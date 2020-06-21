@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Apbd11.Daos;
+using Apbd11.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +21,8 @@ namespace Apbd11
         {
             services.AddDbContext<MedicineDbContext>(options =>
                 options.UseSqlServer("Data Source=(LocalDb)\\v11.0;Integrated Security=True"));
+            services.AddScoped<DoctorService>();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,10 +35,7 @@ namespace Apbd11
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Hello World!"); });
-            });
+            app.UseEndpoints(builder => builder.MapControllers());
         }
     }
 }
