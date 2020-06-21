@@ -4,14 +4,16 @@ using Apbd11.Daos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Apbd11.Migrations
 {
     [DbContext(typeof(MedicineDbContext))]
-    partial class MedicineDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200621183126_Medicaments")]
+    partial class Medicaments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
