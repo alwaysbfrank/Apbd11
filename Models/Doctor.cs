@@ -16,7 +16,7 @@ namespace Apbd11.Models
         public string LastName { get; set; }
         [MaxLength(100)]
         public string Email { get; set; }
-
+        
         public ICollection<Prescription> Prescriptions { get; set; }
     }
 }

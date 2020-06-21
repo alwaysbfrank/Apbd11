@@ -23,6 +23,7 @@ namespace Apbd11.Daos
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<PrescriptionMedicament>().HasKey(table => new {table.IdMedicament, table.IdPrescription});
+            builder.Seed();
         }
     }
 }
